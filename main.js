@@ -71,4 +71,9 @@ function salvarCarro() {
   if (localStorage.getItem('carros')) {
     carros = JSON.parse(localStorage.getItem('carros'));
   }
+  carros.push(carro); // Adicionar novo carro ao array de carros
+  localStorage.setItem('carros', JSON.stringify(carros)); // Salvar carros no LocalStorage
+
+  exibirCarros(); // Atualizar a lista de carros exibida
+  document.getElementById('carForm').reset(); // Limpar o formulário
 }
