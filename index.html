@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Cadastro de Carros</title>
   <link rel="stylesheet" href="./style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+  </script>
+  <script src="./main.js"></script>
 </head>
+
 <body>
   <h1>Cadastro de Carros</h1>
-
-  <h2>Adicionar Carro</h2>
+  <br>
+  
+  <div class="row">
+    <div class="d-flex justify-content-center">
+      <h2>Adicionar Carro</h2>
+    </div>
+  </div>
   <form id="car-form">
     <label for="marca">Marca:</label>
     <select id="marca" name="marca">
@@ -31,17 +45,20 @@
     <br>
 
     <label for="quilometragem">Quilometragem:</label>
-    <input type="number" id="quilometragem" name="quilometragem" required>
+    <input type="number" id="quilometragem" name="quilometragem"
+      oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
 
     <br>
 
     <label for="ano">Ano:</label>
-    <input type="number" id="ano" name="ano" required>
+    <input type="number" id="ano" name="ano"
+      oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
 
     <br>
 
     <label for="preco">Preço:</label>
-    <input type="number" id="preco" name="preco" required>
+    <input type="number" id="preco" name="preco"
+      oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" required>
 
     <br>
 
@@ -59,81 +76,109 @@
 
     <br>
 
-    <label for="opcionais">Opcionais:</label><br>
-    
-    <input type="checkbox" id="opcionais_airbag" name="opcionais" value="Airbag">
-    <label for="opcionais_airbag">Airbag</label>
+    <label for="opcionais">Opcionais:</label>
+    <br><br>
 
-    <input type="checkbox" id="opcionais_alarme" name="opcionais" value="Alarme">
-    <label for="opcionais_alarme">Alarme</label>
+    <div class="row">
+      <label class="col-7" for="opcionais_airbag">Airbag</label>
+      <input class="col-1" type="checkbox" id="opcionais_airbag" name="opcionais" value="Airbag">
+    </div>
 
-    <input type="checkbox" id="opcionais_ar_condicionado" name="opcionais" value="Ar condicionado">
-    <label for="opcionais_ar_condicionado">Ar condicionado</label>
+    <div class="row">
+      <label class="col-7" for="opcionais_alarme">Alarme</label>
+      <input class="col-1" type="checkbox" id="opcionais_alarme" name="opcionais" value="Alarme">
+    </div>
 
-    <input type="checkbox" id="opcionais_bancos_couro" name="opcionais" value="Bancos em couro">
-    <label for="opcionais_bancos_couro">Bancos em couro</label>
+    <div class="row">
+      <label class="col-7" for="opcionais_ar_condicionado">Ar condicionado</label>
+      <input class="col-1" type="checkbox" id="opcionais_ar_condicionado" name="opcionais" value="Ar condicionado">
+    </div>
 
-    <input type="checkbox" id="opcionais_computador_bordo" name="opcionais" value="Computador de bordo">
-    <label for="opcionais_computador_bordo">Computador de bordo</label>
+    <div class="row">
+      <label class="col-7" for="opcionais_bancos_couro">Bancos em couro</label>
+      <input class="col-1" type="checkbox" id="opcionais_bancos_couro" name="opcionais" value="Bancos em couro">
+    </div>
 
-    <input type="checkbox" id="opcionais_controle_aut">
-    <label for="opcionais_controle_aut">Controle automático de velocidade</label>
+    <div class="row">
+      <label class="col-7" for="opcionais_computador_bordo">Computador de bordo</label>
+      <input class="col-1" type="checkbox" id="opcionais_computador_bordo" name="opcionais" value="Computador de bordo">
+    </div>
 
-    <input type="checkbox" id="opcionais_controle_tracao">
-    <label for="opcionais_controle_tracao">Controle de tração</label>
-    
-    <input type="checkbox" id="opcionais_direcao_hidr">
-    <label for="opcionais_direcao_hidr">Direção hidráulica</label>
+    <div class="row">
+      <label class="col-7" for="opcionais_controle_aut">Controle automático de velocidade</label>
+      <input class="col-1" type="checkbox" id="opcionais_controle_aut">
+    </div>
 
-    <input type="checkbox" id="opcionais_freio_abs">
-    <label for="opcionais_freio_abs">Freio abs</label>
+    <div class="row">
+      <label class="col-7" for="opcionais_controle_tracao">Controle de tração</label>
+      <input class="col-1" type="checkbox" id="opcionais_controle_tracao">
+    </div>
 
-    <input type="checkbox" id="opcionais_rodas_liga_leve">
-    <label for="opcionais_rodas_liga_leve">Rodas de liga
-      leve </label>
-    
-    <input type="checkbox" id="opcionais_sens_chuva">
-    <label for="opcionais_sens_chuva">Sensor de chuva</label>
+    <div class="row">
+      <label class="col-7" for="opcionais_direcao_hidr">Direção hidráulica</label>
+      <input class="col-1" type="checkbox" id="opcionais_direcao_hidr">
+    </div>
 
-    <input type="checkbox" id="opcionais_sens_estacionamento">
-    <label for="opcionais_sens_estacionamento"> Sensor de estacionamento </label>
+    <div class="row">
+      <label class="col-7" for="opcionais_freio_abs">Freio abs</label>
+      <input class="col-1" type="checkbox" id="opcionais_freio_abs">
+    </div>
 
-    <input type="checkbox" id="opcionais_teto_solar">
-    <label for="opcionais_teto_solar">Teto solar</label>
+    <div class="row">
+      <label class="col-7" for="opcionais_rodas_liga_leve">Rodas de liga leve </label>
+      <input class="col-1" type="checkbox" id="opcionais_rodas_liga_leve">
+    </div>
 
-    <input type="checkbox" id="opcionais_vidros_eletricos">
-    <label for="opcionais_vidros_eletricos">Vidros elétricos</label>
+    <div class="row">
+      <label class="col-7" for="opcionais_sens_chuva">Sensor de chuva</label>
+      <input class="col-1" type="checkbox" id="opcionais_sens_chuva">
+    </div>
+
+    <div class="row">
+      <label class="col-7" for="opcionais_sens_estacionamento"> Sensor de estacionamento </label>
+      <input class="col-1" type="checkbox" id="opcionais_sens_estacionamento">
+    </div>
+
+    <div class="row">
+      <label class="col-7" for="opcionais_teto_solar">Teto solar</label>
+      <input class="col-1" type="checkbox" id="opcionais_teto_solar">
+    </div>
+
+    <div class="row">
+      <label class="col-7" for="opcionais_vidros_eletricos">Vidros elétricos</label>
+      <input class="col-1" type="checkbox" id="opcionais_vidros_eletricos">
+    </div>
 
     <br>
 
     <label>Blindado</label>
-    <select id="blindado">
-    <option value="sim">Sim</option>
-    <option value="não">Não</option>
-    </select>
+    <br><br>
 
+    <div class="row">
+      <label class="col-1" for="blindado">Sim</label>
+      <input class="col-1" type="radio" name="blindado" id="blindado-true" value="1">
+      <label class="col-1" for="blindado">Não</label>
+      <input class="col-1" type="radio" name="blindado" id="blindado-true" value="0">
+    </div>
+    <br>
     <title>Listagem de Carros</title>
 
     <div id="car-table-container">
       <table id="car-table">
-          <thead>
-              <tr>
-                  <th>Marca</th>
-                  <th>Modelo</th>
-                  <th>Ano</th>
-                  <th>Opções</th>
-              </tr>
-          </thead>
-          <tbody id="car-table-body"></tbody>
+        <thead>
+          <tr>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Ano</th>
+            <th>Opções</th>
+          </tr>
+        </thead>
+        <tbody id="car-table-body"></tbody>
       </table>
-  </div>
-  <div id="add-delt-car-container">
+    </div>
+    <div id="add-delt-car-container">
       <button id="add-car-btn">Adicionar Carro</button>
       <button id="delet-car-btn">Excluir Carro</button>
       <button id="edit-car-btn">Editar</button>
-  </div>
-  
-  
-
-    <script src="./main.js"></script>
-    </body>
+    </div>
+</body>
