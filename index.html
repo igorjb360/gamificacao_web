@@ -1,139 +1,165 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Cadastro de Carros</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-  <h1>Cadastro de Carros</h1>
+  <head>
+    <title>Cadastro de Carros</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>Cadastro de Carros</h1>
 
-  <h2>Adicionar Carro</h2>
-  <form id="car-form">
-    <label for="marca">Marca:</label>
-    <select id="marca" name="marca">
-      <option value="Toyota">Toyota</option>
-      <option value="Volkswagen">Volkswagen</option>
-      <option value="Honda">Honda</option>
-      <option value="Ford">Ford</option>
-      <option value="Chevrolet">Chevrolet</option>
-    </select>
+    <h2>Adicionar Carro</h2>
+    <form id="form">
+      <label for="marca">Marca:</label>
+      <select id="marca" name="marca">
+        <option value=""></option>
+        <option value="Toyota">Toyota</option>
+        <option value="Volkswagen">Volkswagen</option>
+        <option value="Honda">Honda</option>
+        <option value="Ford">Ford</option>
+        <option value="Chevrolet">Chevrolet</option>
+      </select required>
 
-    <br>
+      <br />
 
-    <label for="modelo">Modelo:</label>
-    <input type="text" id="modelo" name="modelo" maxlength="100" required>
+      <label for="modelo">Modelo:</label>
+      <input type="text" id="modelo" name="modelo" maxlength="100" required />
 
-    <br>
+      <br />
 
-    <label for="versao">Versão:</label>
-    <input type="text" id="versao" name="versao" maxlength="100" required>
+      <label for="versao">Versão:</label>
+      <input type="text" id="versao" name="versao" maxlength="100" required />
 
-    <br>
+      <br />
 
-    <label for="quilometragem">Quilometragem:</label>
-    <input type="number" id="quilometragem" name="quilometragem" required>
+      <label for="quilometragem">Quilometragem:</label>
+      <input type="number" id="quilometragem" name="quilometragem" required />
 
-    <br>
+      <br />
 
-    <label for="ano">Ano:</label>
-    <input type="number" id="ano" name="ano" required>
+      <label for="ano">Ano:</label>
+      <input type="number" id="ano" name="ano" required />
 
-    <br>
+      <br />
 
-    <label for="preco">Preço:</label>
-    <input type="number" id="preco" name="preco" required>
+      <label for="preco">Preço:</label>
+      <input type="number" id="preco" name="preco" required />
 
-    <br>
+      <br />
 
-    <label for="cor">Cor:</label>
-    <select id="cor" name="cor">
-      <option value="Azul">Azul</option>
-      <option value="Bege">Bege</option>
-      <option value="Branco">Branco</option>
-      <option value="Cinza">Cinza</option>
-      <option value="Marrom">Marrom</option>
-      <option value="Prata">Prata</option>
-      <option value="Preto">Preto</option>
-      <option value="Vermelho">Vermelho</option>
-    </select>
+      <label for="cor">Cor:</label>
+      <select id="cor" name="cor">
+        <option value=""></option>
+        <option value="Azul">Azul</option>
+        <option value="Bege">Bege</option>
+        <option value="Branco">Branco</option>
+        <option value="Cinza">Cinza</option>
+        <option value="Marrom">Marrom</option>
+        <option value="Prata">Prata</option>
+        <option value="Preto">Preto</option>
+        <option value="Vermelho">Vermelho</option>
+      </select>
 
-    <br>
+      <br />
 
-    <label for="opcionais">Opcionais:</label><br>
-    
-    <input type="checkbox" id="opcionais_airbag" name="opcionais" value="Airbag">
-    <label for="opcionais_airbag">Airbag</label>
+      <label for="opcionais">Opcionais:</label><br />
 
-    <input type="checkbox" id="opcionais_alarme" name="opcionais" value="Alarme">
-    <label for="opcionais_alarme">Alarme</label>
+      <input
+        type="checkbox"
+        id="opcionais_airbag"
+        name="opcionais"
+        value="Airbag"
+      />
+      <label for="opcionais_airbag">Airbag</label>
 
-    <input type="checkbox" id="opcionais_ar_condicionado" name="opcionais" value="Ar condicionado">
-    <label for="opcionais_ar_condicionado">Ar condicionado</label>
+      <input
+        type="checkbox"
+        id="opcionais_alarme"
+        name="opcionais"
+        value="Alarme"
+      />
+      <label for="opcionais_alarme">Alarme</label>
 
-    <input type="checkbox" id="opcionais_bancos_couro" name="opcionais" value="Bancos em couro">
-    <label for="opcionais_bancos_couro">Bancos em couro</label>
+      <input
+        type="checkbox"
+        id="opcionais_ar_condicionado"
+        name="opcionais"
+        value="Ar condicionado"
+      />
+      <label for="opcionais_ar_condicionado">Ar condicionado</label>
 
-    <input type="checkbox" id="opcionais_computador_bordo" name="opcionais" value="Computador de bordo">
-    <label for="opcionais_computador_bordo">Computador de bordo</label>
+      <input
+        type="checkbox"
+        id="opcionais_bancos_couro"
+        name="opcionais"
+        value="Bancos em couro"
+      />
+      <label for="opcionais_bancos_couro">Bancos em couro</label>
 
-    <input type="checkbox" id="opcionais_controle_aut">
-    <label for="opcionais_controle_aut">Controle automático de velocidade</label>
+      <input
+        type="checkbox"
+        id="opcionais_computador_bordo"
+        name="opcionais"
+        value="Computador de bordo"
+      />
+      <label for="opcionais_computador_bordo">Computador de bordo</label>
 
-    <input type="checkbox" id="opcionais_controle_tracao">
-    <label for="opcionais_controle_tracao">Controle de tração</label>
-    
-    <input type="checkbox" id="opcionais_direcao_hidr">
-    <label for="opcionais_direcao_hidr">Direção hidráulica</label>
+      <input type="checkbox" id="opcionais_controle_aut" />
+      <label for="opcionais_controle_aut"
+        >Controle automático de velocidade</label
+      >
 
-    <input type="checkbox" id="opcionais_freio_abs">
-    <label for="opcionais_freio_abs">Freio abs</label>
+      <input type="checkbox" id="opcionais_controle_tracao" />
+      <label for="opcionais_controle_tracao">Controle de tração</label>
 
-    <input type="checkbox" id="opcionais_rodas_liga_leve">
-    <label for="opcionais_rodas_liga_leve">Rodas de liga
-      leve </label>
-    
-    <input type="checkbox" id="opcionais_sens_chuva">
-    <label for="opcionais_sens_chuva">Sensor de chuva</label>
+      <input type="checkbox" id="opcionais_direcao_hidr" />
+      <label for="opcionais_direcao_hidr">Direção hidráulica</label>
 
-    <input type="checkbox" id="opcionais_sens_estacionamento">
-    <label for="opcionais_sens_estacionamento"> Sensor de estacionamento </label>
+      <input type="checkbox" id="opcionais_freio_abs" />
+      <label for="opcionais_freio_abs">Freio abs</label>
 
-    <input type="checkbox" id="opcionais_teto_solar">
-    <label for="opcionais_teto_solar">Teto solar</label>
+      <input type="checkbox" id="opcionais_rodas_liga_leve" />
+      <label for="opcionais_rodas_liga_leve">Rodas de liga leve </label>
 
-    <input type="checkbox" id="opcionais_vidros_eletricos">
-    <label for="opcionais_vidros_eletricos">Vidros elétricos</label>
+      <input type="checkbox" id="opcionais_sens_chuva" />
+      <label for="opcionais_sens_chuva">Sensor de chuva</label>
 
-    <br>
+      <input type="checkbox" id="opcionais_sens_estacionamento" />
+      <label for="opcionais_sens_estacionamento">
+        Sensor de estacionamento
+      </label>
 
-    <label>Blindado</label>
-    <select id="blindado">
-    <option value="sim">Sim</option>
-    <option value="não">Não</option>
-    </select>
+      <input type="checkbox" id="opcionais_teto_solar" />
+      <label for="opcionais_teto_solar">Teto solar</label>
 
-    <title>Listagem de Carros</title>
+      <input type="checkbox" id="opcionais_vidros_eletricos" />
+      <label for="opcionais_vidros_eletricos">Vidros elétricos</label>
 
-    <div id="car-table-container">
-      <table id="car-table">
-          <thead>
-              <tr>
-                  <th>Marca</th>
-                  <th>Modelo</th>
-                  <th>Ano</th>
-                  <th>Opções</th>
-              </tr>
-          </thead>
-          <tbody id="car-table-body"></tbody>
-      </table>
-  </div>
-  <div id="add-delt-car-container">
-      <button id="add-car-btn">Adicionar Carro</button>
-      <button id="delet-car-btn">Excluir Carro</button>
-      <button id="edit-car-btn">Editar</button>
-  </div>
-  
-  
+      <br />
+
+      <label>Blindado</label>
+      <select id="blindado">
+        <option value="sim">Sim</option>
+        <option value="não">Não</option>
+      </select>
+
+      <h1>Tabela de Carros</h1>
+  <table id="tabelaCarros">
+    <tr>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Ano</th>
+      <th>Opções</th>
+    </tr>
+    <!-- Dados dos carros serão inseridos dinamicamente aqui -->
+  </table>
+
+      <div id="car-container">
+        <button type="submit" id="add-car-btn">Adicionar Carro</button>
+        <button id="delet-car-btn">Excluir Carro</button>
+        <button id="edit-car-btn">Editar</button>
+      </div>
+    </form>
 
     <script src="./main.js"></script>
-    </body>
+  </body>
+</html>
