@@ -25,6 +25,7 @@ function salvarCarro() {
     
     // Cria um objeto com os dados do carro
     var carro = {
+      id: Date.now(),
       marca: marca,
       modelo: modelo,
       versao: versao,
@@ -54,7 +55,9 @@ function salvarCarro() {
   for (var i = 0; i < opcionaisCheckboxes.length; i++) {
     opcionaisCheckboxes[i].checked = false;
   }
-  
+
+
+
    // Obter a referência da tabela
    var carrosTable = document.getElementById("carrosTable");
 
@@ -76,7 +79,7 @@ function salvarCarro() {
    var editarBtn = document.createElement("button");
    editarBtn.textContent = "Editar";
    editarBtn.addEventListener("click", function() {
-    editarFormulario()
+    editarFormulario(carro.id.blindado)
    });
  
    var excluirBtn = document.createElement("button");
@@ -89,67 +92,72 @@ function salvarCarro() {
    opcoesCell.appendChild(editarBtn);
    opcoesCell.appendChild(excluirBtn);
 
-}
-
-// Função para editar o formulário
-function editarFormulario() {
-  // Obtém os valores dos campos do formulário
-  var marca = document.getElementById("marca").value;
-  var modelo = document.getElementById("modelo").value;
-  var versao = document.getElementById("versao").value;
-  var quilometragem = document.getElementById("quilometragem").value;
-  var ano = document.getElementById("ano").value;
-  var preco = document.getElementById("preco").value;
-  var cor = document.getElementById("cor").value;
-  var opcionais = [];
-
-  // Obtém os valores dos checkboxes de opcionais
-  var opcionaisCheckbox = document.getElementsByName("opcionais");
-  for (var i = 0; i < opcionaisCheckbox.length; i++) {
-    if (opcionaisCheckbox[i].checked) {
-      opcionais.push(opcionaisCheckbox[i].value);
+   //Essa funcao nao esta funcionando corretamente 
+    function editarFormulario(id) {
+      var redireciona = document.getElementById("form")
+      if (redireciona) {
+        // Usa o método scrollIntoView() para rolar a página até o elemento alvo
+        redireciona.scrollIntoView();
+        
+        // Busca o objeto do carro pelo ID no LocalStorage   
+  var carros = JSON.parse(localStorage.getItem("carros")) || [];
+  var carroIndex = -1;
+  for (var i = 0; i < carros.length; i++) {
+    if (carros[i].id === id) {
+      carroIndex = i;
+      break;
     }
   }
 
-  // Atualiza os campos do formulário com os valores obtidos
-  document.getElementById("marca-edit").value = marca;
-  document.getElementById("modelo-edit").value = modelo;
-  document.getElementById("versao-edit").value = versao;
-  document.getElementById("quilometragem-edit").value = quilometragem;
-  document.getElementById("ano-edit").value = ano;
-  document.getElementById("preco-edit").value = preco;
-  document.getElementById("cor-edit").value = cor;
+  // Verifica se o carro foi encontrado
+  if (carroIndex === -1) {
+    console.error("Carro não encontrado para o ID:", id);
+    return;
+  }
 
-  // Atualiza os checkboxes de opcionais
-  var opcionaisEditCheckbox = document.getElementsByName("opcionais-edit");
-  for (var i = 0; i < opcionaisEditCheckbox.length; i++) {
-    if (opcionais.includes(opcionaisEditCheckbox[i].value)) {
-      opcionaisEditCheckbox[i].checked = true;
-    } else {
-      opcionaisEditCheckbox[i].checked = false;
+  // Preenche os campos do formulário com os dados do carro
+  document.getElementById("marca").value = carros[carroIndex].marca;
+  document.getElementById("modelo").value = carros[carroIndex].modelo;
+  document.getElementById("versao").value = carros[carroIndex].versao;
+  document.getElementById("quilometragem").value = carros[carroIndex].quilometragem;
+  document.getElementById("ano").value = carros[carroIndex].ano;
+  document.getElementById("preco").value = carros[carroIndex].preco;
+  document.getElementById("cor").value = carros[carroIndex].cor;
+  var opcionaisCheckboxes = document.getElementsByName("opcionais");
+  for (var i = 0; i < opcionaisCheckboxes.length; i++) {
+    opcionaisCheckboxes[i].checked = carros[carroIndex].opcionais.includes(opcionaisCheckboxes[i].value);
+  }
+  document.querySelector("input[name='blindado'][value='" + carros[carroIndex].blindado + "']").checked = true;
+
+  // Adiciona evento para o envio do formulário
+  document.getElementById("form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevenir o comportamento padrão do formulário
+
+    // Atualiza os dados do carro no objeto do carro
+    carros[carroIndex].marca = document.getElementById("marca").value;
+    carros[carroIndex].modelo = document.getElementById("modelo").value;
+    carros[carroIndex].versao = document.getElementById("versao").value;
+    carros[carroIndex].quilometragem = document.getElementById("quilometragem").value;
+    carros[carroIndex].ano = document.getElementById("ano").value;
+    carros[carroIndex].preco = document.getElementById("preco").value;
+    carros[carroIndex].cor = document.getElementById("cor").value;
+    carros[carroIndex].opcionais = [];
+    for (var i = 0; i < opcionaisCheckboxes.length; i++) {
+      if (opcionaisCheckboxes[i].checked) {
+        carros[carroIndex].opcionais.push(opcionaisCheckboxes[i].value);
+      }
     }
-  }
+    carros[carroIndex].blindado = document.querySelector("input[name='blindado']:checked").value;
 
-  // Exibe o formulário de edição
-  document.getElementById("form-edit").style.display = "block";
-}
+    // Atualiza o LocalStorage com os novos dados do carro
+    localStorage.setItem("carros", JSON.stringify(carros));
 
-// Função para cancelar a edição do formulário
-function cancelarEdicao() {
-  // Limpa os campos do formulário de edição
-  document.getElementById("marca-edit").value = "";
-  document.getElementById("modelo-edit").value = "";
-  document.getElementById("versao-edit").value = "";
-  document.getElementById("quilometragem-edit").value = "";
-  document.getElementById("ano-edit").value = "";
-  document.getElementById("preco-edit").value = "";
-  document.getElementById("cor-edit").value = "";
-  var opcionaisEditCheckbox = document.getElementsByName("opcionais-edit");
-  for (var i = 0; i < opcionaisEditCheckbox.length; i++) {
-    opcionaisEditCheckbox[i].checked = false;
-  }
+  });
 
-  // Oculta o formulário de edição
-  document.getElementById("form-edit").style.display = "none";
+    }
+  
+    
+   }
+  
 }
 
